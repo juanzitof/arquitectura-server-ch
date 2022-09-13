@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="shortcut icon" href="#" />
+    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="mb-5">
+      <div class="container-fluid bienvenido">
+        <div class="bienvenido-content">
+          <h1 class="fw-bold logged-message d-flex justify-content-center">
+            CENTER - Games & Games
+          </h1>
+        </div>
+      </div>
+      <div class="jumbotron bg-light login">
+        <br />
+        <form
+          class="form"
+          action="/login"
+          method="post"
+          role="form"
+          autocomplete="off"
+        >
+          <div class="form-group mb-3">
+            <input
+              id="email"
+              name="email"
+              placeholder="Email"
+              class="form-control"
+              type="text"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <input
+              id="password"
+              name="password"
+              placeholder="password"
+              class="form-control"
+              type="password"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-success my-3 submit" type="submit">Iniciar Sesión</button>
+          </div>
+        </form>
+
+        <hr />
+
+        <div class="text-left">
+          No tenes cuenta?
+          <button
+            class="btn btn-warning my-3 ms-4"
+            onclick="location.href = '/signup'"
+          >
+            Registrate
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

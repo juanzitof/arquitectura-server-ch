@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="shortcut icon" href="#" />
+    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <title>Center | Carrito</title>
+  </head>
+  <body>
+    
+    <div class="container-fluid bienvenido">
+        <a href="/" class="btn btn-primary volver">inicio</a>
+      <div class="container bienvenido-content d-flex justify-content-center">
+        <h1 class="fw-bold logged-message">
+          Carrito
+        </h1>
+      </div>
+    </div>
+    <div class="bg-dark text-light container mt-5">
+      <div class="row border-bottom">
+        <div class="col-2 p-4"></div>
+        <div class="col-3 p-4 fw-bold">Nombre</div>
+        <div class="col-2 p-4 fw-bold">Precio</div>
+        <div class="col-2 p-4 fw-bold d-flex justify-content-center">Cantidad</div>
+        <div class="col-3 p-4"></div>
+      </div>
+      <% cartArray.forEach(function(cartItem) { %>
+      <div class="row border-bottom d-flex align-items-center">
+        <div class="col-2 p-4">
+          <img src="<%= cartItem.product.photo %>" alt="Imagen de producto" width="120"/>
+        </div>
+        <div class="col-3 p-4"><%= cartItem.product.name %></div>
+        <div class="col-2 p-4">$ <%= cartItem.product.price %></div>
+        <div class="col-2 p-4 d-flex justify-content-center"><%= cartItem.quantity %></div>
+        <div class="col-3 p-4">
+          <button
+            class="btn btn-danger my-3 borrar"
+            id=<%= cartItem.id %>
+          >
+            Eliminar del carrito
+          </button>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <div class="container d-flex justify-content-end me-5">
+      <button class="btn btn-success my-3 comprar">Finalizar compra</button>
+    </div>
+  </body>
+</html>
+<script>
+  const deleteBtn = document.querySelectorAll('.borrar')
+  deleteBtn.forEach(delBtn=>{
+    delBtn.addEventListener('click', async () => {
+      const id = delBtn.id
+      const res = await fetch(`http://localhost:8080/api/carrito/${id}`, {
+        method : 'delete'
+      })
+      if(res.redirected){
+        window.location.href = res.url
+      }
+    })
+  })
+  const buyBtn = document.querySelector('.comprar')
+  buyBtn.addEventListener('click', async () => {
+    const res = await fetch('http://localhost:8080/api/order/', {
+      method : 'POST'
+    })
+    if(res.redirected){
+        window.location.href = res.url
+      }
+  })
+  
+</script>

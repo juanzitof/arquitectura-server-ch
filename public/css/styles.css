@@ -1,0 +1,80 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+.chat-messages {
+	border: 1px solid black;
+	padding: 12px;
+	height: 300px;
+	overflow-y: scroll;
+}
+
+.author {
+	font-weight: bold;
+	color: blue;
+}
+
+.date {
+	color: brown;
+}
+
+.message {
+	font-style: italic;
+	color: green;
+}
+
+.bienvenido {
+	padding: 1rem;
+	background-color: teal;
+}
+
+.bienvenido-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.bienvenido-content h1 {
+	color: #fafafa;
+}
+
+.desloguear {
+	background-color: rgb(2, 223, 87);
+	border-color: rgb(2, 223, 87);
+	border-radius: 5px;
+}
+.desloguear:hover {
+	background-color: rgb(10, 168, 71);
+	border-color: rgb(10, 168, 71);
+	border-radius: 5px;
+}
+
+.ver-producto__container {
+  display: flex;
+  justify-content: center;
+}
+
+.ver-producto__container .ver-producto{
+ width: 30%;
+}
+
+.volver {
+  position: absolute;
+  float: left;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3rem;
+  min-height: calc(100% - 56px) ;
+  margin: auto;
+}
+
+.logout-perfil {
+  position: absolute;
+  right: 30px
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="shortcut icon" href="#" />
+    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <title>Sign up</title>
+  </head>
+<script>
+      const token = document.cookie.split('=')[1]
+      console.log(token)
+</script>
+<body>
+    <div class="container my-5">
+        <div class="jumbotron">
+    
+          <h1>REGISTRO</h1>
+          <br>
+          <form class="form" action="/signup"  encType="multipart/form-data"  method="post" role="form" autocomplete="off">
+    
+            <div class="form-group mb-3">
+              <input id="email" name="email"placeholder="email" class="form-control" type="email" required>
+            </div>
+    
+            <div class="form-group mb-3">
+              <input id="password" name="password" placeholder="password" class="form-control" type="password" required>
+            </div>
+
+            <div class="form-group mb-3">
+              <input id="name" name="name" placeholder="Nombre" class="form-control" type="text" required>
+            </div>
+            
+            <div class="form-group mb-3">
+              <input id="address" name="address" placeholder="dirección" class="form-control" type="text" required>
+            </div>
+    
+            <div class="form-group mb-3">
+              <input id="birthDate" name="birthDate" placeholder="Fecha de nacimiento" class="form-control" type="date" required>
+            </div>
+
+            <div class="form-group mb-3">
+              <input id="phone" name="phone"placeholder="teléfono" class="form-control" type="tel" required>
+            </div>
+
+            <div class="form-group mb-3">
+              <input id="photo" name="photo" placeholder="foto" class="form-control" type="file" required>
+            </div>
+
+            <div class="form-group mb-3">
+              <input class="btn btn-success my-3" type="submit" value="Registro">
+            </div>
+          </form>
+    
+          <hr>
+    
+          <div class="text-left">
+            <button id="login" class="btn btn-success my-3" onclick="location.href = '/login'">Ir a Login</button>
+          </div>
+    
+        </div>
+      </div>
+</body>
+
+</html>
